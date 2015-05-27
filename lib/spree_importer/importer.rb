@@ -104,8 +104,8 @@ module SpreeImporter
       def open_spreadsheet
         case File.extname(@filename)
           when '.csv'  then @spreadsheet = Roo::CSV.new(@filepath)
-          when '.xls'  then @spreadsheet = Roo::Excel.new(@filepath, nil, :ignore)
-          when '.xlsx' then @spreadsheet = Roo::Excelx.new(@filepath, nil, :ignore)
+          when '.xls'  then @spreadsheet = Roo::Excel.new(@filepath)
+          when '.xlsx' then @spreadsheet = Roo::Excelx.new(@filepath)
           else raise "#{__FILE__}:#{__LINE__} #{I18n.t(:unknown_file_type, scope: [:spree, :spree_importer, :messages], filename: @filename)}"
         end
 
